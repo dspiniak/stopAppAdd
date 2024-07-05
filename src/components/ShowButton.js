@@ -26,13 +26,16 @@ const ShowButton = () => {
     );
 
     // Timer to show 'got to next app' button after 10 seconds
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowButton(true);
-        }, 10000);
-    
-        return () => clearTimeout(timer);
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            setShowButton(false);
+            const timer = setTimeout(() => {
+                setShowButton(true);
+            }, 10000);
+        
+            return () => clearTimeout(timer);
+        }, [])
+    );
 
     return (
         <View style={styles.absoluteContainer}>
@@ -42,7 +45,8 @@ const ShowButton = () => {
                         Linking.openURL(`${nextAppUrl}://app`);
                     }}
                 >
-                    <Text style={styles.text}> quiero ir a la app  </Text>
+                    <Text style={styles.text}> quiero ir a la app ►
+                    </Text>
                 </TouchableOpacity> 
             )}
         </View>

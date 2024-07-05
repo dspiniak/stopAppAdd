@@ -8,20 +8,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const BreatheScreen = ({ navigation }) => {
     const [nextApp, setNextApp] = useState('');
     const lastAppUrl = watchUrl();
-    const text = 'hola';
-
-    useEffect(() => {
-        const getNextApp = async () => {
-          const nextAppValue = await AsyncStorage.getItem('nextApp');
-          console.log('Breathe - async', nextAppValue)
-          if (nextAppValue !== null) {
-            setNextApp(nextAppValue);
-          }
-        };
-        getNextApp();
-    }, [nextApp]);
-
-    console.log('last app is: ', nextApp);
 
     return (
         <View style={styles.container}>
@@ -32,10 +18,7 @@ const BreatheScreen = ({ navigation }) => {
                 <Text style={styles.configureText}>configurar app</Text>
             </TouchableOpacity>
             <CircleAnimation />
-            <ShowButton 
-                lastAppUrl = {nextApp}
-                text = {text}
-            />
+            <ShowButton />
         </View>
     );
 };
@@ -59,7 +42,7 @@ const styles = StyleSheet.create({
     },
     configureText: {
         color: '#FFFFFF',
-        fontSize: 18,
+        fontSize: 20,
         fontStyle: 'italic'
     }
 });
