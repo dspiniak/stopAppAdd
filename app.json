@@ -3,6 +3,7 @@
     "name": "killAppAdd",
     "slug": "killAppAdd",
     "version": "1.0.0",
+    "scheme": "killAppAdd",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,8 +13,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
-    },
+      "supportsTablet": true    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

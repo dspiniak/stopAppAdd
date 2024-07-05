@@ -1,0 +1,51 @@
+// import React, { createContext, useState, useEffect } from 'react';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import createDataContext from "./createDataContext.js";
+// import NextAppButton from '../components/NextAppButton.js';
+
+// const appReducer = (state, action) => {
+//   switch (action.type) {
+//     case 'update_app':
+//         return { nextApp: action.paylod }
+//     default:
+//         return state;
+//   }  
+// };
+
+// const updateApp= (dispatch) => async (nextApp) => {
+//     await AsyncStorage.setItem('nextApp', nextApp);
+//     dispatch({ type: 'update_app', payload: nextApp });
+// }
+
+// export const { Context, Provider } = createDataContext(
+//     appReducer,
+//     { updateApp },
+//     { nextApp: ''}
+// );
+
+
+// // Create a Provider component
+// const AppProvider = ({ children }) => {
+//     const [nextApp, setNextApp] = useState(null);
+  
+//     useEffect(() => {
+//       const loadNextApp = async () => {
+//         const storedNextApp = await AsyncStorage.getItem('nextApp');
+//         if (storedNextApp) {
+//           setNextApp(storedNextApp);
+//         }
+//       };
+//       loadNextApp();
+//     }, []);
+  
+//     const updateNextApp = async (app) => {
+//       setNextApp(app);
+//       await AsyncStorage.setItem('nextApp', app);
+//     };
+  
+//     return (
+//       <AppContext.Provider value={{ nextApp, updateNextApp }}>
+//         {children}
+//       </AppContext.Provider>
+//     );
+//   };
